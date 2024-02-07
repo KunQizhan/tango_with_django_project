@@ -26,6 +26,8 @@ MEDIA_URL = '/media/'
 #媒体文件在网站上地URL
 #5.1
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#9.8
+LOGIN_URL = 'rango:login'
 
 
 
@@ -97,6 +99,13 @@ DATABASES = {
 
 
 # Password validation
+PASSWORD_HASHERS = [
+                    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+                    'django.contrib.auth.hashers.BCryptPasswordHasher',
+                    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+                    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -111,6 +120,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': { 'min_length': 6, }
     },
 ]
 

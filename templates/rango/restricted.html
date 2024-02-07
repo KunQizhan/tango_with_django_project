@@ -1,0 +1,12 @@
+{% extends 'rango/base.html' %}
+
+{% block title_block %}
+    Restricted Page
+{% endblock %}
+
+{% block body_block %}
+<div>
+    <h2>This page is restricted to registered users only.</h2>
+    <p>Please <a href="{% url 'rango:login' %}">login</a> to view the content.</p>
+</div>
+{% endblock %}
